@@ -1,3 +1,206 @@
-/* styles.css — Assignment 1
-   Lesson 1 is about structure only, so this file is intentionally empty.
-   Visual styling (colors, fonts, layout) gets added here in Lesson 2. */
+/* ============================================================
+   styles.css — Assignment 1 (Lesson 2: Design Iterations)
+   Page: A Setting for a Cyberpunk TTRPG Campaign
+ 
+   COLOR PALETTE (borrowed from the original lore PDF + the Orihia logo)
+     #0a0c0a  page background — near-black with a hint of green
+     #111611  panel background — a step lighter, for boxes
+     #223022  border lines — dark green-gray
+     #cfe3c4  body text — pale green, easy to read on black
+     #8bc34a  headings & links — "terminal" green
+     #d32f2f  accent — Orihia red (used ONLY for borders/hover so it stays special)
+     #8a9a82  muted text — captions, footer
+ 
+   TYPE
+     Headings: monospace  → feels like a computer terminal (cyberpunk)
+     Body:     sans-serif → comfortable for long paragraphs of lore
+ 
+   DESIGN PRINCIPLES USED
+     Hierarchy   — h1 biggest + red underline, h2 medium + red side bar, h3 smallest
+     Contrast    — light text on dark background; green headings vs. pale body text
+     Proximity   — space BETWEEN sections is bigger than space WITHIN them
+     Consistency — every heading is green monospace; red is always a border, never text
+   ============================================================ */
+ 
+ 
+/* ---------- 1. THE PAGE ---------- */
+ 
+body {
+  background-color: #0a0c0a;
+  color: #cfe3c4;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;            /* extra space between lines = easier reading */
+  max-width: 900px;            /* keeps lines from getting too long to read */
+  margin: 0 auto;              /* "auto" left/right margins center the column */
+  padding: 20px 24px 60px;     /* top, left/right, bottom */
+}
+ 
+p {
+  margin: 0 0 18px;            /* space below each paragraph */
+}
+ 
+ 
+/* ---------- 2. HEADINGS (hierarchy) ---------- */
+ 
+/* Shared look for ALL headings — consistency */
+h1, h2, h3 {
+  font-family: Consolas, "Lucida Console", "Courier New", monospace;
+  color: #8bc34a;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1.2;
+}
+ 
+/* Level 1 — the page title. Biggest, centered, red underline. */
+h1 {
+  font-size: 36px;
+  text-align: center;
+  margin: 40px 0 12px;
+  padding-bottom: 16px;
+  border-bottom: 3px solid #d32f2f;
+}
+ 
+/* Level 2 — section titles. Medium, with a red bar on the left. */
+h2 {
+  font-size: 26px;
+  margin: 0 0 18px;
+  padding-left: 14px;
+  border-left: 5px solid #d32f2f;
+}
+ 
+/* Level 3 — sub-sections (Directorate Board, Constants). Smallest heading. */
+h3 {
+  font-size: 19px;
+  letter-spacing: 1px;
+  margin: 36px 0 10px;
+}
+ 
+ 
+/* ---------- 3. PAGE HEADER (title area) ---------- */
+ 
+/* "header h2" = an h2 that lives INSIDE the <header>. This is the subhead
+   under the title, so it should look like a subtitle, not a section heading. */
+header h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  font-weight: normal;
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #8a9a82;
+  text-align: center;
+  border-left: none;           /* remove the red bar that other h2s get */
+  padding-left: 0;
+  margin: 0 0 20px;
+}
+ 
+header p {
+  text-align: center;
+  color: #8a9a82;
+}
+ 
+ 
+/* ---------- 4. CONTENTS BOX (nav) ---------- */
+ 
+nav {
+  background-color: #111611;
+  border: 1px dashed #223022;
+  border-radius: 6px;
+  padding: 18px 24px;
+  margin: 30px 0 50px;
+}
+ 
+nav h2 {
+  font-size: 15px;
+  margin: 0 0 12px;
+  padding-left: 0;
+  border-left: none;
+}
+ 
+nav ul {
+  margin: 0;
+  padding-left: 20px;
+}
+ 
+nav li {
+  margin: 6px 0;               /* tight spacing: these links are one group (proximity) */
+}
+ 
+ 
+/* ---------- 5. LINKS ---------- */
+ 
+a {
+  color: #8bc34a;
+  text-decoration: none;
+  border-bottom: 1px dotted #8bc34a;
+}
+ 
+/* ":hover" = how the link looks while the mouse is over it */
+a:hover {
+  color: #ff5252;
+  border-bottom-color: #ff5252;
+}
+ 
+ 
+/* ---------- 6. SECTIONS (proximity) ---------- */
+ 
+section {
+  margin-bottom: 50px;         /* big gap BETWEEN sections... */
+  padding-bottom: 20px;
+  border-bottom: 1px solid #223022;
+}
+ 
+ 
+/* ---------- 7. LISTS (districts, board, constants, organizations) ---------- */
+ 
+ol, ul {
+  padding-left: 28px;
+}
+ 
+li {
+  margin-bottom: 16px;         /* ...smaller gap between entries WITHIN a section */
+}
+ 
+/* The bolded name at the start of each entry — make it pop in green so a
+   player can scan the list for the district or faction they need. */
+li strong {
+  color: #8bc34a;
+}
+ 
+ 
+/* ---------- 8. IMAGES ---------- */
+ 
+img {
+  max-width: 100%;             /* never wider than the space available */
+  height: auto;                /* keep original proportions when it shrinks */
+  display: block;              /* lets margin: auto center it */
+  margin: 0 auto;
+  border: 1px solid #223022;
+  border-radius: 4px;
+}
+ 
+figure {
+  margin: 30px 0;
+}
+ 
+figcaption {
+  text-align: center;
+  font-size: 14px;
+  font-style: italic;
+  color: #8a9a82;
+  margin-top: 10px;
+}
+ 
+ 
+/* ---------- 9. FOOTER ---------- */
+ 
+footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 3px solid #d32f2f;   /* echoes the line under the title (consistency) */
+  text-align: center;
+  font-size: 14px;
+  color: #8a9a82;
+}
+ 
